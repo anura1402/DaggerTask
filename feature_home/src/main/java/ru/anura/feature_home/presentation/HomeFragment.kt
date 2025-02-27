@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.anura.feature_home.databinding.FragmentHomeBinding
 import ru.anura.feature_home.di.HomeComponentProvider
+import javax.inject.Inject
 
 class HomeFragment : Fragment() {
 
@@ -17,21 +18,21 @@ class HomeFragment : Fragment() {
     private val binding: FragmentHomeBinding
         get() = _binding ?: throw RuntimeException("FragmentHomeBinding == null")
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
     private lateinit var viewModel: HomeViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as? HomeComponentProvider)?.getHomeComponent()?.inject(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("HomeFragment", "IsCreating")
         super.onCreate(savedInstanceState)
 
-        val homeComponent =
-            (requireActivity().application as? HomeComponentProvider)?.getHomeComponent()
-                ?: throw IllegalStateException("HomeComponent is not initialized")
-
-        viewModel = ViewModelProvider(this, ViewModelFactory {
-            HomeViewModel(homeComponent.fetchDataUseCase()).apply {
-                homeComponent.inject(this)
-            }
-        })[HomeViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
     }
 
     override fun onCreateView(
