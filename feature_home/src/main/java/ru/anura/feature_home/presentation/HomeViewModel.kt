@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class HomeViewModel @AssistedInject constructor(
     private val useCase: FetchDataUseCase,
-    @Assisted private val testValue: String
+    @Assisted("testValue") private val testValue: String
 ) : ViewModel() {
 
     private val _messageLiveData = MutableLiveData<String>()
@@ -36,8 +36,5 @@ class HomeViewModel @AssistedInject constructor(
         }
     }
 
-    @AssistedFactory
-    interface Factory {
-        fun create(testValue: String): HomeViewModel
-    }
+
 }

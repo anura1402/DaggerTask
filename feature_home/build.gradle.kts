@@ -58,4 +58,6 @@ dependencies {
 
     implementation (libs.kotlinx.coroutines.android)
     implementation(libs.retrofit2.kotlin.coroutines.adapter)
+
+    implementation ("androidx.fragment:fragment-ktx:1.8.6")
 }

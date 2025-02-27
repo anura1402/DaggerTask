@@ -20,9 +20,4 @@ class HomeModule {
         return FetchDataUseCase(repository)
     }
 
-    @Provides
-    @FeatureScope
-    fun provideHomeViewModelFactory(factory: HomeViewModel.Factory): ViewModelFactory {
-        return ViewModelFactory(factory)
-    }
 }

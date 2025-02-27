@@ -4,12 +4,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import ru.anura.feature_home.presentation.HomeViewModel
 import ru.anura.feature_home.presentation.ViewModelFactory
 
 @Module
-abstract class ViewModelModule {
+object  ViewModelModule {
+    @Provides
+    @FeatureScope
+    fun provideViewModelFactory(factory: ViewModelFactory.Factory): ViewModelProvider.Factory {
+        return factory.create("testValue123")
+    }
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }
