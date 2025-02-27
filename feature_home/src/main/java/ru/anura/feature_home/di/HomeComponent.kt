@@ -11,7 +11,6 @@ import ru.anura.feature_home.presentation.HomeViewModel
     modules = [HomeModule::class, ViewModelModule::class]
 )
 interface HomeComponent {
-    fun inject(viewModel: HomeViewModel)
     fun inject(fragment: HomeFragment)
 
 

@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import ru.anura.core.domain.Repository
 import ru.anura.feature_home.domain.FetchDataUseCase
+import ru.anura.feature_home.presentation.HomeViewModel
+import ru.anura.feature_home.presentation.ViewModelFactory
 
 @Module
 class HomeModule {
@@ -16,5 +18,11 @@ class HomeModule {
     @FeatureScope
     fun provideFetchDataUseCase(repository: Repository): FetchDataUseCase {
         return FetchDataUseCase(repository)
+    }
+
+    @Provides
+    @FeatureScope
+    fun provideHomeViewModelFactory(factory: HomeViewModel.Factory): ViewModelFactory {
+        return ViewModelFactory(factory)
     }
 }

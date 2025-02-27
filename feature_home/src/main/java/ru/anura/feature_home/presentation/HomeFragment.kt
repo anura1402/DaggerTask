@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentHomeBinding == null")
 
     @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModelFactory: ViewModelFactory
 
     private lateinit var viewModel: HomeViewModel
 
@@ -29,9 +29,9 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("HomeFragment", "IsCreating")
         super.onCreate(savedInstanceState)
-
+        val testValue = "12345"
+        viewModelFactory.setTestValue(testValue)
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
     }
 
@@ -48,10 +48,9 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        viewModel.messageLiveData.observe(viewLifecycleOwner) { message ->
-            Log.d("HomeFragment", "Received message: $message")
+        viewModel.messageLiveData.observe(viewLifecycleOwner) { data ->
+            Log.d("HomeFragment", "Получены данные:\n$data")
         }
-        Log.d("HomeFragment", "Calling viewModel.makeRequests()")
         viewModel.makeRequests()
     }
 
