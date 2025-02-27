@@ -6,11 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.assisted.Assisted
-import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch
 import ru.anura.feature_home.domain.FetchDataUseCase
-import javax.inject.Inject
 
 class HomeViewModel @AssistedInject constructor(
     private val useCase: FetchDataUseCase,

@@ -1,6 +1,5 @@
 package ru.anura.core.repositoryImpl
 
-import android.util.Log
 import ru.anura.core.domain.Repository
 import ru.anura.core.network.ApiService
 import javax.inject.Inject

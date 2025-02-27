@@ -6,7 +6,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import ru.anura.feature_home.domain.FetchDataUseCase
-import javax.inject.Inject
 
 class ViewModelFactory @AssistedInject constructor(
     private val useCase: FetchDataUseCase,

@@ -1,9 +1,7 @@
 package ru.anura.core.network
 
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
-import ru.anura.core.entity.MyResponse
 import ru.anura.core.entity.Product
 
 class ApiService {

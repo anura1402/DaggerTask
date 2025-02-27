@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import ru.anura.feature_home.databinding.FragmentHomeBinding
 import ru.anura.feature_home.di.HomeComponentProvider
 import javax.inject.Inject
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.viewModelFactory
 
 class HomeFragment : Fragment() {
 

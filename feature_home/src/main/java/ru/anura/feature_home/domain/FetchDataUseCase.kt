@@ -1,6 +1,5 @@
 package ru.anura.feature_home.domain
 
-import android.util.Log
 import ru.anura.core.domain.Repository
 import javax.inject.Inject
 

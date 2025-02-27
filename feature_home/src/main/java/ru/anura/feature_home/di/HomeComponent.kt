@@ -3,7 +3,6 @@ package ru.anura.feature_home.di
 import dagger.Component
 import ru.anura.core.di.CoreComponent
 import ru.anura.feature_home.presentation.HomeFragment
-import ru.anura.feature_home.presentation.ViewModelFactory
 
 @FeatureScope
 @Component(
